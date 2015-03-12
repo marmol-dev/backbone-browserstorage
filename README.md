@@ -1,4 +1,4 @@
-# backbone-localstorage
+# backbone-browserstorage
 Backbone Model and Collection stored in localstorage
 
 ## Installation
@@ -44,4 +44,4 @@ var boards = new Boards([], {localStorageKey: 'boards'});
 ```
 
 ## License
-[Apache License 2.0](http://github.com/tomymolina/backbone-browserstorage/LICENSE)
+[Apache License 2.0](http://github.com/tomymolina/backbone-browserstorage/blob/master/LICENSE)
