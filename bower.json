@@ -1,0 +1,32 @@
+{
+  "name": "backbone-browserstorage",
+  "version": "0.0.1",
+  "description": "Create models and collections stored in the browser (local) storage.",
+  "main": "backbone-browserstorage.js",
+  "ignore": [
+    ".gitignore",
+    ".git/"
+  ],
+  "authors": [{
+    "name": "tomymolina",
+    "email": "tm07081995@gmail.com",
+    "homepage": "http://about.me/tomymolina"
+  }],
+  "repository": {
+    "type":"git",
+    "url": "git://github.com/tomymolina/backbone-browserstorage.git"
+  }
+  "keywords": [
+    "backbone",
+    "local",
+    "storage",
+    "browser",
+    "class",
+    "model",
+    "collection",
+    "localstorage"
+  ],
+  "dependencies": {
+    "backbone": "*"
+  }
+}
