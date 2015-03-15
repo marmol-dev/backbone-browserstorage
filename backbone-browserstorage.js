@@ -89,8 +89,24 @@
 			this.set(lS(this.$localStorageKey));
 		},
 		$updateLocalStorage: function() {
+			var plainObject = this.toJSON();
+
+			if (_.isArray(this.lsExcludedAttributes) ){
+				_.each(this.lsExcludedAttributes, function(e){
+					if (typeof e === 'string'){
+						delete plainObject[e];
+					} else if (e instanceof RegExp){
+						_.forIn(plainObject, function(value, key){
+							if (e.test(key)){
+								delete plainObject[key];
+							}
+						});
+					}
+				});
+			}
+
+			lS(this.$localStorageKey, plainObject);
 			this.trigger('localStorageUpdated');
-			lS(this.$localStorageKey, this.toJSON());
 		}
 	});
 
@@ -112,7 +128,7 @@
 
 			//events
 			_.extend(this, Backbone.Events);
-			var eventsToUpdate = ['reset'];
+			var eventsToUpdate = ['reset', 'change'];
 			if (options.updateOnlyOnReset !== true) {
 				eventsToUpdate.push('add');
 				eventsToUpdate.push('remove');
