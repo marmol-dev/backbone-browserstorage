@@ -112,7 +112,7 @@
 
 			//events
 			_.extend(this, Backbone.Events);
-			var eventsToUpdate = ['reset'];
+			var eventsToUpdate = ['reset', 'change'];
 			if (options.updateOnlyOnReset !== true) {
 				eventsToUpdate.push('add');
 				eventsToUpdate.push('remove');

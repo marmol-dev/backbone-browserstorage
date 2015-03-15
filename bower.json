@@ -1,6 +1,6 @@
 {
   "name": "backbone-browserstorage",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Create models and collections stored in the browser (local) storage.",
   "main": "backbone-browserstorage.js",
   "ignore": [
