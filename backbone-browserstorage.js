@@ -63,6 +63,7 @@
 
 	var Model = Backbone.Model.extend({
 		constructor: function(attrs, options) {
+			var self = this;
 
 			if (!_.isObject(options)) {
 				throw new Error('Invalid options object');
@@ -76,7 +77,9 @@
 
 			Backbone.Model.apply(this, arguments);
 
-			this.on('change', this.$updateLocalStorage.bind(this));
+			this.on('change', function(){
+				self.$updateLocalStorage.apply(self, arguments);
+			});
 
 			//localstorage
 			if (!lS(this.$localStorageKey)) {
@@ -112,6 +115,8 @@
 
 	var Collection = Backbone.Collection.extend({
 		constructor: function(items, options) {
+			var self = this;
+			
 			//options validation
 			if (!_.isObject(options)) {
 				throw new Error('Invalid options object');
@@ -134,7 +139,9 @@
 				eventsToUpdate.push('remove');
 			}
 
-			this.on(eventsToUpdate.join(' '), this.$updateLocalStorage.bind(this));
+			this.on(eventsToUpdate.join(' '), function(){
+				self.$updateLocalStorage.apply(self, arguments);
+			});
 
 			//localstorage
 			if (!lS(this.$localStorageKey)) {
